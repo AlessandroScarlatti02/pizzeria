@@ -1,0 +1,14 @@
+.col-33 {
+    width: calc(100% / 7);
+    height: 400x;
+    padding: 0 10px;
+    margin: 20px 5px;
+    border-radius: 10px;
+    background-color: #F8C899;
+    text-align: center;
+}
+
+.img-150 {
+    width: 150px;
+    height: 150px;
+}
