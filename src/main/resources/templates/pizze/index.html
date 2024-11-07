@@ -40,21 +40,28 @@
     <main>
         <div class="container justify-content-center" style="text-align: center;">
             <h1>Benvenuti nella mia Pizzeria</h1><br>
-            <h2>Questo è l'elenco delle pizze disponibili attualmente, in costante aggiornamento</h2>
+
         </div>
+        <div th:if="${!pizze.isEmpty()}">
+            <div class="container">
+                <h2>Questo è l'elenco delle pizze disponibili attualmente, in costante aggiornamento</h2>
+                <div class="row align-items-center justify-content-center">
+                    <div th:each="pizza : ${pizze}" class="col-33">
+                        <img th:src="@{${pizza.pic}}" alt="" class="img-150">
+                        <p th:text="${pizza.name}"></p>
+                        <p th:text="${pizza.description}"></p>
+                        <p th:text="|€ ${pizza.price}|"></p>
+                    </div>
 
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div th:each="pizza : ${pizze}" class="col-33">
-                    <img th:src="@{${pizza.pic}}" alt="" class="img-150">
-                    <p th:text="${pizza.name}"></p>
-                    <p th:text="${pizza.description}"></p>
-                    <p th:text="${pizza.price}"></p>
                 </div>
-
             </div>
         </div>
 
+        <div th:if="${pizze.isEmpty()}">
+            <div class="alert alert-secondary" role="alert">
+                Purtroppo al momento non abbiamo pizze disponibili ci dispiace
+            </div>
+        </div>
 
     </main>
 
