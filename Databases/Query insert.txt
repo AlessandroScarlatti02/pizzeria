@@ -1,0 +1,10 @@
+INSERT INTO db_pizzeria.pizze (description,name,pic,price) VALUES
+	 ('Mozzarella and tomato sauce','Margherita','/img/pizze/PizzaMargherita.png',7.0),
+	 ('4 types of cheeses','4 Formaggi','/img/pizze/Pizza4Formaggi.png',10.85),
+	 ('Mozzarella, tomato sauce, ham and vegetables','Capricciosa','/img/pizze/PizzaCapricciosa.png',15.0),
+	 ('Mozzarella, tomato sauce and hot salami','Diavola','/img/pizze/PizzaDiavola.png',9.0),
+	 ('Tomato sauce','Marinara','/img/pizze/PizzaMarinara.png',10.85),
+	 ('Mozzarella, tomato sauce, and dried ham','San Daniele','/img/pizze/PizzaSanDaniele.png',200.0),
+	 ('Mozzarella, tomato sauce, tune and onion','Tonno & Cipolla','/img/pizze/PizzaTonnoECipolla.png',3.0),
+	 ('Mozzarella, tomato sauce and wurstel','Wurstel','/img/pizze/PizzaWurstel.png',11.0),
+	 ('Mozzarella, wurstel and fried chips','Wurstel & Patatine','/img/pizze/PizzaWurstelEPatatine.png',13.0);

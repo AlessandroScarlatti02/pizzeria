@@ -14,7 +14,7 @@ public class PizzeController {
     @Autowired
     private PizzaRepository pizzaRepo;
 
-    @GetMapping
+    @GetMapping 
     public String index(Model model) {
 
         model.addAttribute("pizze", pizzaRepo.findAll());
