@@ -27,7 +27,7 @@ public class PizzeController {
 
         List<Pizza> allPizza;
 
-        if (keyword != "null" && !keyword.isBlank()) {
+        if (keyword != null && !keyword.isBlank()) {
             allPizza = pizzaRepo.findByName(keyword);
         } else {
             allPizza = pizzaRepo.findAll();
