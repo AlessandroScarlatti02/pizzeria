@@ -22,6 +22,8 @@ public class Pizza {
 
     private double price;
 
+    private String ingredients;
+
     public long getId() {
         return id;
     }
@@ -60,6 +62,14 @@ public class Pizza {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
     @Override

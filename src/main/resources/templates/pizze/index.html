@@ -4,37 +4,12 @@
 <head>
     <div th:replace="~{fragments :: head}"></div>
     <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <title>Pizzeria</title>
 </head>
 
-<body>
+<body style="background-color: #FAC895;">
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img th:src="@{/img/pizzalogo.jpg}" alt="" width="60" height="60">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <div th:replace="~{navbar :: nav}"></div>
     </header>
 
     <main>
@@ -42,22 +17,41 @@
             <h1 class="m-4">Benvenuti nella mia Pizzeria</h1>
 
         </div>
-        <div th:if="${!pizze.isEmpty()}">
-            <div class="container-fluid">
+        <div class="container-fluid" style="padding: 50px; padding-top: 0px;">
+            <div class="d-flex justify-content-end">
+                <form th:action="@{/pizze}" method="get">
+                    <div class="input-group">
+                        <input name="keyword" th:value="${keyword}" class="form-control" type="search"
+                            placeholder="Filter" aria-label="Filter">
+
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <a th:href="@{/pizze}"><button class="btn btn-danger" type="button">
+                                RESET FILTER
+                            </button></a>
+                    </div>
+                </form>
+            </div>
+
+            <div th:if="${!pizze.isEmpty()}">
+
+
+
 
                 <table class="table table-dark table-striped align-middle">
                     <thead>
                         <tr>
-                            <th scope="col">Picture</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Price</th>
-                            <th scope="col"></th>
+                            <th>Picture</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="pizza : ${pizze}">
-                            <td><img th:src="@{${pizza.pic}}" alt="" class="img-150"></td>
+                            <td><img th:src="@{${pizza.pic}}" alt="" class="img-60"></td>
                             <td>
                                 <p th:text="${pizza.name}"></p>
                             </td>
@@ -67,7 +61,8 @@
                             <td>
                                 <p th:text="|€ ${pizza.price}|"></p>
                             </td>
-                            <td><a class="btn btn-light" href="#"><i class="fas fa-info-circle"></i></a></td>
+                            <td><a class="btn btn-light" th:href="@{|/pizze/show/${pizza.id}|}"><i
+                                        class="fas fa-info-circle"></i></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -84,8 +79,6 @@
         </div>
 
     </main>
-
-
 
 
 
