@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="~{fragments :: head}"></div>
+    <title>New Pizza</title>
+</head>
+
+<body style="background-color: #FAC895;">
+
+    <header>
+        <div th:replace="~{navbar :: nav}"></div>
+    </header>
+
+    <main>
+
+        <form th:action="@{/pizze/create}" class="row g-3" method="post" th:object="${pizza}" id="pizza-form">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Ex. Margherita">
+            </div>
+            <div class="col-md-6">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="description" th:field="*{description}"
+                    placeholder="Ex. Mozzarella & Tomato Sauce">
+            </div>
+            <div class="col-12">
+                <label for="ingredients" class="form-label">Ingredients</label>
+                <input type="text" class="form-control" id="ingredients" th:field="*{ingredients}"
+                    placeholder="Ex. Oil, Tomato, Flour, Mozzarella, Water, ecc...">
+            </div>
+            <div class="col-md-6">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" class="form-control" id="price" th:field="*{price}" placeholder="Ex. 7.50">
+            </div>
+            <div class="col-md-6">
+                <label for="pic" class="form-label">Image</label>
+                <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control" id="pic"
+                    th:field="*{pic}">
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+        </form>
+
+    </main>
+
+
+
+
+    <div th:replace="~{fragments :: scripts}"></div>
+</body>
+
+
+
+</html>
