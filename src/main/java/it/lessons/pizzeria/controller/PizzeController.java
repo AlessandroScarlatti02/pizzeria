@@ -69,7 +69,7 @@ public class PizzeController {
         return "pizze/create";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/store")
     public String store(@Valid @ModelAttribute("pizza") Pizza formPizza, BindingResult bindingResult, Model model,
             RedirectAttributes redirectAttributes) {
 

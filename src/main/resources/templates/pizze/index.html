@@ -23,8 +23,7 @@
                     <div class="input-group">
                         <input name="keyword" th:value="${keyword}" class="form-control" type="search"
                             placeholder="Filter" aria-label="Filter">
-                        <a class="btn btn-success col-md-2" th:href="@{/pizze/create}"><i class="fas fa-plus"></i>
-                            Insert a book </a>
+
                         <button class="btn btn-primary" type="submit">
                             <i class="fas fa-search"></i>
                         </button>
@@ -78,7 +77,8 @@
                 </div>
             </div>
         </div>
-
+        <a class="btn btn-success col-md-2" th:href="@{/pizze/create}"><i class="fas fa-plus"></i>
+            NEW PIZZA </a>
     </main>
 
 

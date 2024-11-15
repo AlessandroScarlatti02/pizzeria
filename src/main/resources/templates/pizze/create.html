@@ -14,7 +14,7 @@
 
     <main>
 
-        <form th:action="@{/pizze/create}" class="row g-3" method="post" th:object="${pizza}" id="pizza-form">
+        <form th:action="@{pizze/store}" class="row g-3" method="post" th:object="${pizza}" id="pizza-form">
             <div class="col-md-6">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Ex. Margherita">
@@ -33,11 +33,11 @@
                 <label for="price" class="form-label">Price</label>
                 <input type="number" class="form-control" id="price" th:field="*{price}" placeholder="Ex. 7.50">
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <label for="pic" class="form-label">Image</label>
                 <input type="file" accept="image/png, image/jpg, image/jpeg" class="form-control" id="pic"
                     th:field="*{pic}">
-            </div>
+            </div> -->
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Sign in</button>
             </div>
