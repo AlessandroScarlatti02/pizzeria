@@ -31,10 +31,6 @@ public class Pizza {
     @NotNull(message = "Price cannot be null")
     private double price;
 
-    @NotNull(message = "Ingredients cannot be null")
-    @NotBlank(message = "Ingredients cannot be empty")
-    private String ingredients;
-
     public long getId() {
         return id;
     }
@@ -73,14 +69,6 @@ public class Pizza {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public String getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
     }
 
     @Override

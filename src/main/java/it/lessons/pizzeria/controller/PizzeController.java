@@ -19,6 +19,7 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequestMapping("/pizze")
@@ -64,7 +65,7 @@ public class PizzeController {
     @GetMapping("/create")
     public String create(Model model) {
 
-        model.addAttribute("piza", new Pizza());
+        model.addAttribute("pizza", new Pizza());
 
         return "pizze/create";
     }
@@ -80,6 +81,27 @@ public class PizzeController {
         pizzaRepo.save(formPizza);
 
         redirectAttributes.addFlashAttribute("successMessage", "Pizza created");
+
+        return "redirect:/pizze";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable(name = "id") Long id, Model model) {
+
+        model.addAttribute("pizza", pizzaRepo.findById(id).get());
+
+        return "pizze/edit";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String update(@PathVariable(name = "id") Long id, @Valid @ModelAttribute("pizza") Pizza pizzaForm,
+            Model model, BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "pizze/edit";
+        }
+
+        pizzaRepo.save(pizzaForm);
 
         return "redirect:/pizze";
     }
