@@ -65,6 +65,7 @@
                             <th>Description</th>
                             <th>Price</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,7 +81,10 @@
                                 <p th:text="|€ ${pizza.price}|"></p>
                             </td>
                             <td><a class="btn btn-light" th:href="@{|/pizze/show/${pizza.id}|}"><i
-                                        class="fas fa-info-circle"></i></a></td>
+                                        class="fas fa-info-circle"></i></a>
+                                <a class="btn btn-light" th:href="@{|/pizze/edit/${pizza.id}|}"><i
+                                        class="fas fa-edit"></i></a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

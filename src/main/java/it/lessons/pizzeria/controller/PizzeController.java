@@ -19,7 +19,6 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequestMapping("/pizze")
@@ -101,6 +100,7 @@ public class PizzeController {
             return "pizze/edit";
         }
 
+        pizzaForm.setPic(pizzaRepo.findById(id).get().getPic());
         pizzaRepo.save(pizzaForm);
 
         return "redirect:/pizze";
