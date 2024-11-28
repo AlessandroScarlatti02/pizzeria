@@ -19,6 +19,7 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequestMapping("/pizze")
@@ -102,6 +103,14 @@ public class PizzeController {
 
         pizzaForm.setPic(pizzaRepo.findById(id).get().getPic());
         pizzaRepo.save(pizzaForm);
+
+        return "redirect:/pizze";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable(name = "id") Long id) {
+
+        pizzaRepo.deleteById(id);
 
         return "redirect:/pizze";
     }

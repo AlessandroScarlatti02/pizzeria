@@ -64,8 +64,8 @@
                             <th>Name</th>
                             <th>Description</th>
                             <th>Price</th>
-                            <th></th>
-                            <th></th>
+                            <th>UtilitNy</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -80,10 +80,21 @@
                             <td>
                                 <p th:text="|€ ${pizza.price}|"></p>
                             </td>
-                            <td><a class="btn btn-light" th:href="@{|/pizze/show/${pizza.id}|}"><i
-                                        class="fas fa-info-circle"></i></a>
-                                <a class="btn btn-light" th:href="@{|/pizze/edit/${pizza.id}|}"><i
-                                        class="fas fa-edit"></i></a>
+                            <td>
+                                <div class="d-flex">
+
+                                    <a class="btn btn-light m-2" th:href="@{|/pizze/show/${pizza.id}|}"><i
+                                            class="fas fa-info-circle"></i></a>
+                                    <a class="btn btn-light m-2" th:href="@{|/pizze/edit/${pizza.id}|}"><i
+                                            class="fas fa-edit"></i></a>
+
+                                    <form th:action="@{|/pizze/delete/${pizza.id}|}" method="post" class="m-2">
+                                        <button type="submit" class="btn btn-light"
+                                            onclick="return confirm('Are you sure?')"><i
+                                                class="fas fa-trash"></i></button>
+                                    </form>
+
+                                </div>
                             </td>
                         </tr>
                     </tbody>
